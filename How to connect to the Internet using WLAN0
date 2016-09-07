@@ -1,0 +1,19 @@
+1. Login the BeagleBone Black with root
+
+2. Enter the command: iwconfig 
+   - It will show you a list of extension. 
+   - If wlan0 is not shown, power off the BeagleBone Black and power on. (The USB might be wlan2 or 3, edit wlan0 accordingly to your USB shown)
+
+3. Enter the command: nano /etc/network/interfaces
+   - As we are only using wlan0, look for #Wifi-Example
+
+3. Under the #Wifi-Example, edit the wpa-ssid (name of wifi) and wpa-psk (password)
+   - This will enable the BeableBone Black to search for the wifi
+   - To disable the wlan0, use # to comment it.
+
+4. Save the file using Ctrl + 0 to overwrite it.
+
+5. If you're unable to connect to the wifi, enter the command: 
+   ifup wlan0
+   ifdown wlan0
+   - This will allow the USB adapter to restart and start to scan for the fixed wifi and connect. 

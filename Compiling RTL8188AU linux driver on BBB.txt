@@ -1,0 +1,22 @@
+INSTALLING LINUX DRIVER ON BEAGLEBONE BLACK
+
+In order to start, you will need to install the following programs onto your PC:
+SourceTree
+WinSCP
+Notepad++
+
+1.	Go into SourceTree, and clone the following link https://github.com/abperiasamy/rtl8812AU_8821AU_linux.git and save it to a workspace. This will download the files needed to build the RTL8812AU
+
+2.	Before we transfer the files over, edit the Makefile. Make sure to save the following parameters as such: 
+CONFIG_PLATFORM_ARM_RPI = n
+CONFIG_PLATFORM_I386_PC = y
+
+3.	Next, we will need WinSCP to transfer the files into the BeagleBone Black. Login with the BeagleBone Black with ‘root’ for super user access (This is similar to using PuTTY access). Search for the file rtl8812AU_8821AU_linux and drag it over into the BBB under a directory (/usr/src)
+
+4.	Next compile the linux driver by following the codes below 
+cd usr/src/rtl8812AU_8821AU_linux
+make
+make install
+modprobe 8812au
+
+5.	It should be downloaded and installed, however this driver is unable to test with MonitorMode.
